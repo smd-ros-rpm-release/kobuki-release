@@ -1,0 +1,12 @@
+Source: ros-groovy-kobuki-auto-docking
+Section: misc
+Priority: extra
+Maintainer: Younghun Ju <younghoon.ju@yujinrobot.com>
+Build-Depends: debhelper (>= 7.0.50~), ros-groovy-nav-msgs,ros-groovy-kobuki-msgs,ros-groovy-catkin,ros-groovy-roscpp,ros-groovy-message-filters,ros-groovy-pluginlib,ros-groovy-ecl-threads,ros-groovy-actionlib,ros-groovy-ecl-geometry,ros-groovy-std-msgs,ros-groovy-kdl-conversions,ros-groovy-rospy,ros-groovy-ecl-linear-algebra,ros-groovy-geometry-msgs,ros-groovy-nodelet,ros-groovy-actionlib-msgs
+Homepage: http://ros.org/wiki/kobuki_auto_docking
+Standards-Version: 3.9.2
+
+Package: ros-groovy-kobuki-auto-docking
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-groovy-nav-msgs,ros-groovy-kobuki-msgs,ros-groovy-roscpp,ros-groovy-message-filters,ros-groovy-pluginlib,ros-groovy-ecl-threads,ros-groovy-actionlib,ros-groovy-ecl-geometry,ros-groovy-std-msgs,ros-groovy-kdl-conversions,ros-groovy-rospy,ros-groovy-ecl-linear-algebra,ros-groovy-geometry-msgs,ros-groovy-nodelet,ros-groovy-actionlib-msgs
+Description: Automatic docking for Kobuki: Users owning a docking station for Kobuki can use this tool to let Kobuki find its nest autonomously.
