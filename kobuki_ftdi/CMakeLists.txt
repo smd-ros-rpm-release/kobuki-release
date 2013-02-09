@@ -27,6 +27,21 @@ install(DIRECTORY eeproms
         DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 install(PROGRAMS scripts/turtlebot_config
-                 scripts/UNUSED
+                 scripts/create_udev_rules
         DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
+
+install(FILES 57-kobuki.rules
+        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
+
+# This has issues....hydro doing th same thing will result in 
+# a file conflict. We could call it 57-groovy-kobuki.rules and
+# 57-hydro-kobuki.rules. But that seems kind of lame and could
+# break things if they are actually different (which should
+# be called - udev will have no idea).
+
+#install(FILES 57-kobuki.rules
+#        DESTINATION /etc/udev/rules.d/
+#)
+
