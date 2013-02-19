@@ -1,0 +1,12 @@
+Source: ros-groovy-kobuki-safety-controller
+Section: misc
+Priority: extra
+Maintainer: Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>
+Build-Depends: debhelper (>= 7.0.50~), ros-groovy-kobuki-msgs,ros-groovy-catkin,ros-groovy-roscpp,ros-groovy-pluginlib,ros-groovy-ecl-threads,ros-groovy-std-msgs,ros-groovy-yocs-controllers,ros-groovy-geometry-msgs,ros-groovy-nodelet
+Homepage: http://ros.org/wiki/kobuki_safety_controller
+Standards-Version: 3.9.2
+
+Package: ros-groovy-kobuki-safety-controller
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-groovy-kobuki-msgs,ros-groovy-roscpp,ros-groovy-pluginlib,ros-groovy-ecl-threads,ros-groovy-std-msgs,ros-groovy-yocs-controllers,ros-groovy-geometry-msgs,ros-groovy-nodelet
+Description: A controller ensuring the safe operation of Kobuki. The SafetyController keeps track of bumper, cliff and wheel drop events. In case of the first two, Kobuki is commanded to move back. In the latter case, Kobuki is stopped. This controller can be enabled/disabled. The safety states (bumper pressed etc.) can be reset. WARNING: Dangerous!
