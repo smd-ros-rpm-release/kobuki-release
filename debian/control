@@ -1,0 +1,12 @@
+Source: ros-groovy-kobuki-testsuite
+Section: misc
+Priority: extra
+Maintainer: Jorge Santos Simon <jorge@yujinrobot.com>
+Build-Depends: debhelper (>= 7.0.50~), ros-groovy-catkin, ros-groovy-geometry-msgs, ros-groovy-kobuki-node, ros-groovy-message-generation, ros-groovy-sensor-msgs, ros-groovy-std-msgs
+Homepage: http://ros.org/wiki/kobuki_testsuite
+Standards-Version: 3.9.2
+
+Package: ros-groovy-kobuki-testsuite
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-groovy-geometry-msgs, ros-groovy-kobuki-node, ros-groovy-message-runtime, ros-groovy-sensor-msgs, ros-groovy-std-msgs
+Description: Kobuki test suite: this package provides tools to thoroughly test Kobuki's hardware.
