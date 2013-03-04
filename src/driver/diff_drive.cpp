@@ -29,10 +29,10 @@ DiffDrive::DiffDrive() :
   last_tick_right(0),
   last_rad_left(0.0),
   last_rad_right(0.0),
-  v(0), w(0),
-  radius(0), speed(0),
-  bias(0.23), //wheelbase, wheel_to_wheel, in [m]
-  wheel_radius(0.035),
+  v(0), w(0), // command velocities, in [m/s] and [rad/s]
+  radius(0), speed(0), // command velocities, in [mm] and [mm/s]
+  bias(0.23), // wheelbase, wheel_to_wheel, in [m]
+  wheel_radius(0.035), // radius of main wheel, in [m]
   imu_heading_offset(0),
   tick_to_rad(0.002436916871363930187454f),
   diff_drive_kinematics(bias, wheel_radius)
@@ -120,21 +120,29 @@ void DiffDrive::velocityCommands(const double &vx, const double &wz) {
   // vx: in m/s
   // wz: in rad/s
   const double epsilon = 0.0001;
-  if ( std::abs(wz) < epsilon ) {
-    radius = 0; // straight
-  } else if ( (std::abs(vx) < epsilon ) && ( wz > epsilon ) ) {
-    radius = 1; // in place ccw turn
-  } else if ( (std::abs(vx) < epsilon ) && ( wz < -1*epsilon ) ) {
-    radius = -1; // in place cw turn
-  } else {
-    radius = (short)(vx * 1000.0f / wz);
-    // what happen, if resulatant radius from this block is -1, 0, or 1.
+
+  // Special Case #1 : Straight Run
+  if( std::abs(wz) < epsilon ) {
+    radius = 0;
+    speed  = (short)(1000.0f * vx);
+    return;
   }
-  if ( vx < 0.0 ) {
-    speed = (short)(1000.0f * std::min(vx + bias * wz / 2.0f, vx - bias * wz / 2.0f));
-  } else {
-    speed = (short)(1000.0f * std::max(vx + bias * wz / 2.0f, vx - bias * wz / 2.0f));
+
+  radius = (short)(vx * 1000.0f / wz);
+  // Special Case #2 : Pure Rotation or Radius is less than or equal to 1.0 mm
+  if( std::abs(vx) < epsilon || std::abs(radius) <= 1 ) {
+    speed  = (short)(1000.0f * bias * wz / 2.0f);
+    radius = 1;
+    return;
   }
+
+  // General Case :
+  if( radius > 0 ) {
+    speed  = (short)((radius + 1000.0f * bias / 2.0f) * wz);
+  } else {
+    speed  = (short)((radius - 1000.0f * bias / 2.0f) * wz);
+  }
+  return;
 }
 
 void DiffDrive::velocityCommands(const short &cmd_speed, const short &cmd_radius) {
