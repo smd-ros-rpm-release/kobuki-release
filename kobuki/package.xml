@@ -1,6 +1,6 @@
 <package>
   <name>kobuki</name>
-  <version>0.3.6</version>
+  <version>0.3.7</version>
   <description>
     Software for Kobuki, Yujin Robot's mobile research base.
   </description>
@@ -11,6 +11,8 @@
   <maintainer email="stonier@rnd.yujinrobot.com">Daniel Stonier</maintainer>
   <license>BSD</license>
   <url>http://ros.org/wiki/kobuki</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
 
   <run_depend>kobuki_arm</run_depend>
   <run_depend>kobuki_auto_docking</run_depend>
