@@ -1,0 +1,12 @@
+Source: ros-groovy-kobuki-bumper2pc
+Section: misc
+Priority: extra
+Maintainer: Jorge Santos Simon <jorge@yujinrobot.com>
+Build-Depends: debhelper (>= 7.0.50~), ros-groovy-catkin, ros-groovy-kobuki-msgs, ros-groovy-nodelet, ros-groovy-pcl-ros, ros-groovy-pluginlib, ros-groovy-roscpp
+Homepage: http://ros.org/wiki/kobuki_bumper2pc
+Standards-Version: 3.9.2
+
+Package: ros-groovy-kobuki-bumper2pc
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-groovy-kobuki-msgs, ros-groovy-nodelet, ros-groovy-pcl-ros, ros-groovy-pluginlib, ros-groovy-roscpp
+Description: Bumper/cliff to pointcloud nodelet: Publish bumpers and cliff sensors events as points in a pointcloud, so navistack can use them for poor-man navigation. Implemented as a nodelet intended to run together with kobuki_node.
