@@ -1,0 +1,12 @@
+Source: ros-groovy-kobuki-softnode
+Section: misc
+Priority: extra
+Maintainer: Jihoon Lee <jihoonl@yujinrobot.com>
+Build-Depends: debhelper (>= 7.0.50~), ros-groovy-catkin, ros-groovy-kobuki-msgs, ros-groovy-nodelet, ros-groovy-roscpp, ros-groovy-sensor-msgs, ros-groovy-tf
+Homepage: http://ros.org/wiki/kobuki_node
+Standards-Version: 3.9.2
+
+Package: ros-groovy-kobuki-softnode
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-groovy-kobuki-msgs, ros-groovy-nodelet, ros-groovy-roscpp, ros-groovy-sensor-msgs, ros-groovy-tf, ros-groovy-yujin-maps
+Description: ROS nodelet for fake Kobuki.
