@@ -1,0 +1,12 @@
+Source: ros-groovy-kobuki-node
+Section: misc
+Priority: extra
+Maintainer: Daniel Stonier <stonier@yujinrobot.com>
+Build-Depends: debhelper (>= 7.0.50~), ros-groovy-angles, ros-groovy-catkin, ros-groovy-diagnostic-msgs, ros-groovy-diagnostic-updater, ros-groovy-ecl-exceptions, ros-groovy-ecl-sigslots, ros-groovy-ecl-streams, ros-groovy-ecl-threads, ros-groovy-geometry-msgs, ros-groovy-kobuki-driver, ros-groovy-kobuki-keyop, ros-groovy-kobuki-msgs, ros-groovy-kobuki-safety-controller, ros-groovy-nav-msgs, ros-groovy-nodelet, ros-groovy-pluginlib, ros-groovy-roscpp, ros-groovy-rospy, ros-groovy-sensor-msgs, ros-groovy-std-msgs, ros-groovy-tf
+Homepage: http://ros.org/wiki/kobuki_node
+Standards-Version: 3.9.2
+
+Package: ros-groovy-kobuki-node
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-groovy-angles, ros-groovy-diagnostic-msgs, ros-groovy-diagnostic-updater, ros-groovy-ecl-exceptions, ros-groovy-ecl-sigslots, ros-groovy-ecl-streams, ros-groovy-ecl-threads, ros-groovy-geometry-msgs, ros-groovy-kobuki-driver, ros-groovy-kobuki-keyop, ros-groovy-kobuki-msgs, ros-groovy-kobuki-safety-controller, ros-groovy-nav-msgs, ros-groovy-nodelet, ros-groovy-pluginlib, ros-groovy-roscpp, ros-groovy-rospy, ros-groovy-sensor-msgs, ros-groovy-std-msgs, ros-groovy-tf
+Description: ROS nodelet for Kobuki: ROS wrapper for the Kobuki driver.
