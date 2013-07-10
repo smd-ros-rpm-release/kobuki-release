@@ -1,6 +1,6 @@
 <package>
   <name>kobuki</name>
-  <version>0.3.9</version>
+  <version>0.4.0</version>
   <description>
     Software for Kobuki, Yujin Robot's mobile research base.
   </description>
@@ -18,7 +18,7 @@
   <run_depend>kobuki_auto_docking</run_depend>
   <run_depend>kobuki_bumper2pc</run_depend>
   <run_depend>kobuki_controller_tutorial</run_depend>
-  <!-- <run_depend>kobuki_description</run_depend> --> <!-- cannot be catkinized still due to xacro package -->
+  <run_depend>kobuki_description</run_depend> 
   <run_depend>kobuki_driver</run_depend>
   <run_depend>kobuki_ftdi</run_depend>
   <run_depend>kobuki_keyop</run_depend>

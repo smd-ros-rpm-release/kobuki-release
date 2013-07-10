@@ -90,25 +90,20 @@ void Kobuki::init(Parameters &parameters) throw (ecl::StandardException)
   sig_warn.connect(sigslots_namespace + std::string("/ros_warn"));
   sig_error.connect(sigslots_namespace + std::string("/ros_error"));
 
-  //checking device
-  if (access(parameters.device_port.c_str(), F_OK) == -1)
+  serial.block(4000); // blocks by default, but just to be clear!
+  try {
+    serial.open(parameters.device_port, ecl::BaudRate_115200, ecl::DataBits_8, ecl::StopBits_1, ecl::NoParity);  // this will throw exceptions - NotFoundError, OpenError
+    is_connected = true;
+  }
+  catch (const ecl::StandardException &e)
   {
-    ecl::Sleep waiting(5); //for 5sec.
-    event_manager.update(is_connected, is_alive);
-    while (access(parameters.device_port.c_str(), F_OK) == -1)
-    {
-      sig_info.emit("Device does not exist. Waiting...");
-      waiting();
+    if (e.flag() == ecl::NotFoundError) {
+      sig_warn.emit("device does not (yet) available, is the usb connected?."); // not a failure mode.
+    } else {
+      throw ecl::StandardException(LOC, e);
     }
   }
 
-  serial.open(parameters.device_port, ecl::BaudRate_115200, ecl::DataBits_8, ecl::StopBits_1, ecl::NoParity);
-
-  is_connected = true;
-  is_alive = true;
-
-  serial.block(4000); // blocks by default, but just to be clear!
-  serial.clear();
   ecl::PushAndPop<unsigned char> stx(2, 0);
   ecl::PushAndPop<unsigned char> etx(1);
   stx.push_back(0xaa);
@@ -126,7 +121,6 @@ void Kobuki::init(Parameters &parameters) throw (ecl::StandardException)
    *******************************************/
   version_info_reminder = 10;
   sendCommand(Command::GetVersionInfo());
-
   thread.start(&Kobuki::spin, *this);
 }
 
@@ -158,36 +152,37 @@ void Kobuki::spin()
     /*********************
      ** Checking Connection
      **********************/
-    if( access( parameters.device_port.c_str(), F_OK ) == -1 ) {
-      sig_error.emit("Device does not exist.");
-      is_connected = false;
-      is_alive = false;
-      event_manager.update(is_connected, is_alive);
-
-      if( serial.open() )
-      {
-        sig_info.emit("Device is still open, closing it and will try to open it again.");
-        serial.close();
-      }
-      //try_open();
-      ecl::Sleep waiting(5); //for 5sec.
-      while( access( parameters.device_port.c_str(), F_OK ) == -1 ) {
-        sig_info.emit("Device does not exist. Still waiting...");
-        waiting();
-      }
-      serial.open(parameters.device_port, ecl::BaudRate_115200, ecl::DataBits_8, ecl::StopBits_1, ecl::NoParity);
-      if( serial.open() ) {
+    if ( !serial.open() ) {
+      try {
+        // this will throw exceptions - NotFoundError is the important one, handle it
+        serial.open(parameters.device_port, ecl::BaudRate_115200, ecl::DataBits_8, ecl::StopBits_1, ecl::NoParity);
         sig_info.emit("device is connected.");
         is_connected = true;
         event_manager.update(is_connected, is_alive);
         version_info_reminder = 10;
+      }
+      catch (const ecl::StandardException &e)
+      {
+        // windows throws OpenError if not connected
+        if (e.flag() == ecl::NotFoundError) {
+          sig_info.emit("device does not (yet) available on this port, waiting...");
+        } else if (e.flag() == ecl::OpenError) {
+          sig_info.emit("device failed to open, waiting... [" + std::string(e.what()) + "]");
+        } else {
+          // This is bad - some unknown error we're not handling! But at least throw and show what error we came across.
+          throw ecl::StandardException(LOC, e);
+        }
+        ecl::Sleep(5)(); // five seconds
+        is_connected = false;
+        is_alive = false;
+        continue;
       }
     }
 
     /*********************
      ** Read Incoming
      **********************/
-    int n = serial.read(buf, packet_finder.numberOfDataToRead());
+    int n = serial.read((char*)buf, packet_finder.numberOfDataToRead());
     if (n == 0)
     {
       if (is_alive && ((ecl::TimeStamp() - last_signal_time) > timeout))
@@ -489,7 +484,7 @@ void Kobuki::sendCommand(Command command)
 
   command_buffer.push_back(checksum);
   //check_device();
-  serial.write(&command_buffer[0], command_buffer.size());
+  serial.write((const char*)&command_buffer[0], command_buffer.size());
 
   sig_raw_data_command.emit(command_buffer);
   command_mutex.unlock();
