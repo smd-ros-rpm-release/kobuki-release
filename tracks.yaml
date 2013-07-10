@@ -45,7 +45,7 @@ tracks:
     - git-bloom-generate -y rosrelease :{ros_distro} --source upstream -i :{release_inc}
     - git-bloom-generate -y rosdebian --prefix release/:{ros_distro} :{ros_distro}
       -i :{release_inc}
-    devel_branch: https://github.com/yujinrobot/kobuki.git
+    devel_branch: hydro-devel
     name: kobuki
     patches: null
     release_inc: -1
@@ -54,4 +54,4 @@ tracks:
     ros_distro: hydro
     vcs_type: git
     vcs_uri: https://github.com/yujinrobot/kobuki.git
-    version: ''':{auto}'''
+    version: :{auto}
