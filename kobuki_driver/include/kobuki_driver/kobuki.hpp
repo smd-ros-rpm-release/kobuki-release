@@ -99,19 +99,34 @@ public:
   bool enable(); /**< Enable power to the motors. **/
   bool disable(); /**< Disable power to the motors. **/
   void shutdown() { shutdown_requested = true; } /**< Gently terminate the worker thread. **/
-  void spin();
 
   /******************************************
-  ** User Friendly Api
+  ** Packet Processing
   *******************************************/
+  void spin();
+  void fixPayload(ecl::PushAndPop<unsigned char> & byteStream);
+
+  /******************************************
+  ** Getters - Data Protection
+  *******************************************/
+  void lockDataAccess();
+  void unlockDataAccess();
+
+  /******************************************
+  ** Getters - User Friendly Api
+  *******************************************/
+  /* Be sure to lock/unlock the data access (lockDataAccess and unlockDataAccess)
+   * around any getXXX calls - see the doxygen notes for lockDataAccess. */
   ecl::Angle<double> getHeading() const;
   double getAngularVelocity() const;
   VersionInfo versionInfo() const { return VersionInfo(firmware.data.version, hardware.data.version, unique_device_id.data.udid0, unique_device_id.data.udid1, unique_device_id.data.udid2); }
   Battery batteryStatus() const { return Battery(core_sensors.data.battery, core_sensors.data.charger); }
 
   /******************************************
-  ** Raw Data Api
+  ** Getters - Raw Data Api
   *******************************************/
+  /* Be sure to lock/unlock the data access (lockDataAccess and unlockDataAccess)
+   * around any getXXX calls - see the doxygen notes for lockDataAccess. */
   CoreSensors::Data getCoreSensorData() const { return core_sensors.data; }
   DockIR::Data getDockIRData() const { return dock_ir.data; }
   Cliff::Data getCliffData() const { return cliff.data; }
@@ -119,12 +134,13 @@ public:
   Inertia::Data getInertiaData() const { return inertia.data; }
   GpInput::Data getGpInputData() const { return gp_input.data; }
   ThreeAxisGyro::Data getRawInertiaData() const { return three_axis_gyro.data; }
+  ControllerInfo::Data getControllerInfoData() const { return controller_info.data; }
 
   /*********************
   ** Feedback
   **********************/
   void getWheelJointStates(double &wheel_left_angle, double &wheel_left_angle_rate,
-                            double &wheel_right_angle, double &wheel_right_angle_rate);
+                           double &wheel_right_angle, double &wheel_right_angle_rate);
   void updateOdometry(ecl::Pose2D<double> &pose_update,
                       ecl::linear_algebra::Vector3d &pose_update_rates);
 
@@ -141,6 +157,9 @@ public:
   void setDigitalOutput(const DigitalOutput &digital_output);
   void setExternalPower(const DigitalOutput &digital_output);
   void playSoundSequence(const enum SoundSequences &number);
+  bool setControllerGain(const unsigned char &type, const unsigned int &p_gain,
+                         const unsigned int &i_gain, const unsigned int &d_gain);
+  bool getControllerGain();
 
   /*********************
   ** Debugging
@@ -159,6 +178,11 @@ private:
   **********************/
   DiffDrive diff_drive;
   bool is_enabled;
+
+  /*********************
+  ** Inertia
+  **********************/
+  double heading_offset;
 
   /*********************
   ** Driver Paramters
@@ -184,6 +208,7 @@ private:
   Firmware firmware; // requestable
   UniqueDeviceID unique_device_id; // requestable
   ThreeAxisGyro three_axis_gyro;
+  ControllerInfo controller_info; // requestable
 
   ecl::Serial serial;
   PacketFinder packet_finder;
@@ -191,6 +216,7 @@ private:
   bool is_alive; // used as a flag set by the data stream watchdog
 
   int version_info_reminder;
+  int controller_info_reminder;
 
   /*********************
   ** Commands
@@ -198,8 +224,13 @@ private:
   void sendBaseControlCommand();
   void sendCommand(Command command);
   ecl::Mutex command_mutex; // protection against the user calling the command functions from multiple threads
+  // data_mutex is protection against reading and writing data structures simultaneously as well as
+  // ensuring multiple get*** calls are synchronised to the same data update
+  // refer to https://github.com/yujinrobot/kobuki/issues/240
+  ecl::Mutex data_mutex;
   Command kobuki_command; // used to maintain some state about the command history
   Command::Buffer command_buffer;
+  std::vector<short> velocity_commands_debug;
 
   /*********************
   ** Events
@@ -207,13 +238,28 @@ private:
   EventManager event_manager;
 
   /*********************
+  ** Logging
+  **********************/
+  std::vector<std::string> log(std::string msg) { return log("", "", msg); } 
+  std::vector<std::string> log(std::string level, std::string msg) { return log(level, "", msg); }
+  std::vector<std::string> log(std::string level, std::string name, std::string msg) {
+    std::vector<std::string> ret;
+    if( level != "" ) ret.push_back(level);
+    if( name != "" ) ret.push_back(name);
+    if( msg != "" ) ret.push_back(msg);
+    return ret;
+  }
+
+  /*********************
   ** Signals
   **********************/
-  ecl::Signal<> sig_stream_data;
+  ecl::Signal<> sig_stream_data, sig_controller_info;
   ecl::Signal<const VersionInfo&> sig_version_info;
   ecl::Signal<const std::string&> sig_debug, sig_info, sig_warn, sig_error;
+  ecl::Signal<const std::vector<std::string>&> sig_named;
   ecl::Signal<Command::Buffer&> sig_raw_data_command; // should be const, but pushnpop is not fully realised yet for const args in the formatters.
   ecl::Signal<PacketFinder::BufferType&> sig_raw_data_stream; // should be const, but pushnpop is not fully realised yet for const args in the formatters.
+  ecl::Signal<const std::vector<short>&> sig_raw_control_command;
 };
 
 } // namespace kobuki
