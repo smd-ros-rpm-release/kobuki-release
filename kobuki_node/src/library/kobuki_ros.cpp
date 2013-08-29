@@ -61,6 +61,7 @@ namespace kobuki
 KobukiRos::KobukiRos(std::string& node_name) :
     name(node_name), cmd_vel_timed_out_(false), serial_timed_out_(false),
     slot_version_info(&KobukiRos::publishVersionInfo, *this),
+    slot_controller_info(&KobukiRos::publishControllerInfo, *this),
     slot_stream_data(&KobukiRos::processStreamData, *this),
     slot_button_event(&KobukiRos::publishButtonEvent, *this),
     slot_bumper_event(&KobukiRos::publishBumperEvent, *this),
@@ -73,8 +74,10 @@ KobukiRos::KobukiRos(std::string& node_name) :
     slot_info(&KobukiRos::rosInfo, *this),
     slot_warn(&KobukiRos::rosWarn, *this),
     slot_error(&KobukiRos::rosError, *this),
+    slot_named(&KobukiRos::rosNamed, *this),
     slot_raw_data_command(&KobukiRos::publishRawDataCommand, *this),
-    slot_raw_data_stream(&KobukiRos::publishRawDataStream, *this)
+    slot_raw_data_stream(&KobukiRos::publishRawDataStream, *this),
+    slot_raw_control_command(&KobukiRos::publishRawControlCommand, *this)
 {
   updater.setHardwareID("Kobuki");
   updater.add(battery_diagnostics);
@@ -111,6 +114,7 @@ bool KobukiRos::init(ros::NodeHandle& nh)
    **********************/
   slot_stream_data.connect(name + std::string("/stream_data"));
   slot_version_info.connect(name + std::string("/version_info"));
+  slot_controller_info.connect(name + std::string("/controller_info"));
   slot_button_event.connect(name + std::string("/button_event"));
   slot_bumper_event.connect(name + std::string("/bumper_event"));
   slot_cliff_event.connect(name + std::string("/cliff_event"));
@@ -122,8 +126,10 @@ bool KobukiRos::init(ros::NodeHandle& nh)
   slot_info.connect(name + std::string("/ros_info"));
   slot_warn.connect(name + std::string("/ros_warn"));
   slot_error.connect(name + std::string("/ros_error"));
+  slot_named.connect(name + std::string("/ros_named"));
   slot_raw_data_command.connect(name + std::string("/raw_data_command"));
   slot_raw_data_stream.connect(name + std::string("/raw_data_stream"));
+  slot_raw_control_command.connect(name + std::string("/raw_control_command"));
 
   /*********************
    ** Driver Parameters
@@ -230,7 +236,15 @@ bool KobukiRos::init(ros::NodeHandle& nh)
   // kobuki.printSigSlotConnections();
   return true;
 }
-
+/**
+ * This is a worker function that runs in a background thread initiated by
+ * the nodelet. It gathers diagnostics information from the kobuki driver,
+ * and broadcasts the results to the rest of the ros ecosystem.
+ *
+ * Note that the actual driver data is collected via the slot callbacks in this class.
+ *
+ * @return Bool : true/false if successfully updated or not (kobuki driver shutdown).
+ */
 bool KobukiRos::update()
 {
   if ( kobuki.isShutdown() )
@@ -297,6 +311,7 @@ void KobukiRos::advertiseTopics(ros::NodeHandle& nh)
   ** Kobuki Esoterics
   **********************/
   version_info_publisher = nh.advertise < kobuki_msgs::VersionInfo > ("version_info",  100, true); // latched publisher
+  controller_info_publisher = nh.advertise < kobuki_msgs::ControllerInfo > ("controller_info",  100, true); // latched publisher
   button_event_publisher = nh.advertise < kobuki_msgs::ButtonEvent > ("events/button", 100);
   bumper_event_publisher = nh.advertise < kobuki_msgs::BumperEvent > ("events/bumper", 100);
   cliff_event_publisher  = nh.advertise < kobuki_msgs::CliffEvent >  ("events/cliff",  100);
@@ -310,6 +325,7 @@ void KobukiRos::advertiseTopics(ros::NodeHandle& nh)
   raw_imu_data_publisher = nh.advertise < sensor_msgs::Imu > ("sensors/imu_data_raw", 100);
   raw_data_command_publisher = nh.advertise< std_msgs::String > ("debug/raw_data_command", 100);
   raw_data_stream_publisher = nh.advertise< std_msgs::String > ("debug/raw_data_stream", 100);
+  raw_control_command_publisher = nh.advertise< std_msgs::Int16MultiArray > ("debug/raw_control_command", 100);
 }
 
 /**
@@ -326,6 +342,7 @@ void KobukiRos::subscribeTopics(ros::NodeHandle& nh)
   sound_command_subscriber =  nh.subscribe(std::string("commands/sound"), 10, &KobukiRos::subscribeSoundCommand, this);
   reset_odometry_subscriber = nh.subscribe("commands/reset_odometry", 10, &KobukiRos::subscribeResetOdometry, this);
   motor_power_subscriber = nh.subscribe("commands/motor_power", 10, &KobukiRos::subscribeMotorPower, this);
+  controller_info_command_subscriber =  nh.subscribe(std::string("commands/controller_info"), 10, &KobukiRos::subscribeControllerInfoCommand, this);
 }
 
 
