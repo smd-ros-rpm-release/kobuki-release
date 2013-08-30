@@ -1,0 +1,12 @@
+Source: ros-hydro-kobuki-ftdi
+Section: misc
+Priority: extra
+Maintainer: Younghun Ju <yhju@yujinrobot.com>
+Build-Depends: debhelper (>= 7.0.50~), ftdi-eeprom, libftdi-dev, libusb-dev, ros-hydro-catkin, ros-hydro-ecl-command-line
+Homepage: http://ros.org/wiki/kobuki_ftdi
+Standards-Version: 3.9.2
+
+Package: ros-hydro-kobuki-ftdi
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ftdi-eeprom, libftdi-dev, libusb-dev, ros-hydro-ecl-command-line
+Description: Utilities for flashing and enabling Kobuki's USB connection. This package contains tools for flashing the Kobuki's FTDI chip (usually done at the factory). The special firmware for the FTDI chip (USB to serial converter) enables it to appear as /dev/kobuki on the user's PC.
