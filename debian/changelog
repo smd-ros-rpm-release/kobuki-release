@@ -1,0 +1,30 @@
+ros-hydro-kobuki (0.5.4-1precise) precise; urgency=high
+
+  * Fix the list of packages on this stack.
+
+ -- Daniel Stonier <stonier@yujinrobot.com>  Thu, 05 Sep 2013 15:00:00 -0000
+
+ros-hydro-kobuki (0.5.3-1precise) precise; urgency=high
+
+  * ros and non-ros stack split, driver, ftdi and auto-docking (partial) gone to kobuki_core.
+
+ -- Daniel Stonier <stonier@yujinrobot.com>  Thu, 29 Aug 2013 15:00:00 -0000
+
+ros-hydro-kobuki (0.5.0-1precise) precise; urgency=high
+
+  * adds eclipse project files.
+  * adds the kobuki random walker to the kobuki metapackage.
+  * Added extra url info on all packages.
+  * Updated old rnd email address.
+  * Fix URL to the previous changelog wiki.
+  * Changelogs at package level.
+
+ -- Daniel Stonier <stonier@yujinrobot.com>  Wed, 28 Aug 2013 15:00:00 -0000
+
+ros-hydro-kobuki (0.4.0-1precise) precise; urgency=high
+
+
+
+ -- Daniel Stonier <stonier@rnd.yujinrobot.com>  Thu, 08 Aug 2013 15:00:00 -0000
+
+
