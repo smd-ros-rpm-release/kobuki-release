@@ -1,0 +1,28 @@
+ros-hydro-kobuki-controller-tutorial (0.5.4-1precise) precise; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Thu, 05 Sep 2013 15:00:00 -0000
+
+ros-hydro-kobuki-controller-tutorial (0.5.3-1precise) precise; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Thu, 29 Aug 2013 15:00:00 -0000
+
+ros-hydro-kobuki-controller-tutorial (0.5.0-1precise) precise; urgency=high
+
+  * Add extra url info on all packages.
+  * Add standalone launcher for testing.
+  * Fix URL to the previous changelog wiki.
+  * Changelogs at package level.
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Wed, 28 Aug 2013 15:00:00 -0000
+
+ros-hydro-kobuki-controller-tutorial (0.4.0-1precise) precise; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Thu, 08 Aug 2013 15:00:00 -0000
+
+
