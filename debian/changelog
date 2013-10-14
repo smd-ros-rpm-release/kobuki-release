@@ -1,0 +1,15 @@
+ros-hydro-kobuki-arm (0.5.0-0raring) raring; urgency=high
+
+  * Added extra url info on all packages.
+  * Fix URL to the previous changelog wiki
+  * Changelogs at package level
+
+ -- Daniel Stonier <stonier@yujinrobot.com>  Wed, 28 Aug 2013 15:00:00 -0000
+
+ros-hydro-kobuki-arm (0.4.0-0raring) raring; urgency=high
+
+
+
+ -- Daniel Stonier <stonier@yujinrobot.com>  Thu, 08 Aug 2013 15:00:00 -0000
+
+
