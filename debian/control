@@ -1,0 +1,12 @@
+Source: ros-hydro-kobuki-arm
+Section: misc
+Priority: extra
+Maintainer: Daniel Stonier <stonier@yujinrobot.com>
+Build-Depends: debhelper (>= 7.0.50~), ros-hydro-catkin
+Homepage: http://www.ros.org/wiki/kobuki_arm
+Standards-Version: 3.9.2
+
+Package: ros-hydro-kobuki-arm
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, 
+Description: Experimental code for controlling an arm on top of Turtlebot (DO NOT USE)
