@@ -2,6 +2,11 @@
 Changelog for package kobuki_safety_controller
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.5.6 (2014-05-23)
+------------------
+* Add missing run dependency on yocs_cmd_vel_mux
+* Contributors: Jorge Santos
+
 0.5.5 (2013-10-11)
 ------------------
 
