@@ -2,6 +2,9 @@
 Changelog for package kobuki_testsuite
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.1 (2014-08-08)
+------------------
+
 0.6.0 (2014-08-08)
 ------------------
 * Angular/linear acceleration script added.
