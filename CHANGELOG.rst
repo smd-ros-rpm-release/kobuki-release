@@ -2,6 +2,9 @@
 Changelog for package kobuki_controller_tutorial
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.1 (2014-08-08)
+------------------
+
 0.6.0 (2014-08-08)
 ------------------
 * Add missing run dependency on yocs_cmd_vel_mux
