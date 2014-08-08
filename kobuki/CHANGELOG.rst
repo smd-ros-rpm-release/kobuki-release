@@ -2,7 +2,7 @@
 Changelog for package kobuki
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.5.6 (2014-05-23)
+0.6.0 (2014-08-08)
 ------------------
 * Add missing run dependency on yocs_cmd_vel_mux
 * Contributors: Jorge Santos
