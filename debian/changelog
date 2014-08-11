@@ -1,0 +1,223 @@
+ros-indigo-kobuki-capabilities (0.6.2-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Sun, 10 Aug 2014 15:00:00 -0000
+
+ros-indigo-kobuki-capabilities (0.6.1-0trusty) trusty; urgency=high
+
+  * sync with current app manager launcher. default kobuki capabilities param file added
+  * Contributors: Jihoon Lee
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Thu, 07 Aug 2014 15:00:00 -0000
+
+ros-indigo-kobuki-capabilities (0.6.0-0trusty) trusty; urgency=high
+
+  * moves app manager launcher to kobuki_capabilities (solves #331 <https://github.com/yujinrobot/kobuki/issues/331>)
+  * kobuki_capabilities: adds nodelet manager support for bringup provider
+  * updates and extends kobuki's capabilities
+  * adds cleanup and updates for the recent changes in capabilities dev
+  * kobuki_capabilities: adds provider specific remappings and fixes
+    semantic interface remappings
+  * adds an initial set of kobuki-specific interfaces and providers plus idle node
+  * adds kobuki_capabilities
+  * Contributors: Jihoon Lee, Marcus Liebhardt
+  * moves app manager launcher to kobuki_capabilities (solves #331 <https://github.com/yujinrobot/kobuki/issues/331>)
+  * kobuki_capabilities: adds nodelet manager support for bringup provider
+  * updates and extends kobuki's capabilities
+  * adds cleanup and updates for the recent changes in capabilities dev
+  * kobuki_capabilities: adds provider specific remappings and fixes
+    semantic interface remappings
+  * adds an initial set of kobuki-specific interfaces and providers plus idle node
+  * adds kobuki_capabilities
+  * Contributors: Marcus Liebhardt
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Thu, 07 Aug 2014 15:00:00 -0000
+
+ros-indigo-kobuki-capabilities (0.5.6-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Thu, 22 May 2014 15:00:00 -0000
+
+ros-indigo-kobuki-capabilities (0.5.5-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Thu, 10 Oct 2013 15:00:00 -0000
+
+ros-indigo-kobuki-capabilities (0.5.4-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Tue, 10 Sep 2013 15:00:00 -0000
+
+ros-indigo-kobuki-capabilities (0.5.3-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Fri, 30 Aug 2013 03:30:00 -0000
+
+ros-indigo-kobuki-capabilities (0.5.2-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Thu, 29 Aug 2013 16:44:00 -0000
+
+ros-indigo-kobuki-capabilities (0.5.1-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Thu, 29 Aug 2013 16:43:00 -0000
+
+ros-indigo-kobuki-capabilities (0.5.0-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Wed, 28 Aug 2013 15:00:00 -0000
+
+ros-indigo-kobuki-capabilities (0.4.0-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Thu, 08 Aug 2013 15:00:00 -0000
+
+ros-indigo-kobuki-capabilities (0.3.9-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Mon, 03 Jun 2013 15:00:00 -0000
+
+ros-indigo-kobuki-capabilities (0.3.8-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Tue, 21 May 2013 15:00:00 -0000
+
+ros-indigo-kobuki-capabilities (0.3.7-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Mon, 15 Apr 2013 15:00:00 -0000
+
+ros-indigo-kobuki-capabilities (0.3.6-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Wed, 27 Feb 2013 15:00:00 -0000
+
+ros-indigo-kobuki-capabilities (0.3.5-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Mon, 18 Feb 2013 15:00:00 -0000
+
+ros-indigo-kobuki-capabilities (0.3.4-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Sun, 10 Feb 2013 04:29:00 -0000
+
+ros-indigo-kobuki-capabilities (0.3.3-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Sat, 09 Feb 2013 15:19:00 -0000
+
+ros-indigo-kobuki-capabilities (0.3.2-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Fri, 08 Feb 2013 14:31:00 -0000
+
+ros-indigo-kobuki-capabilities (0.3.1-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Fri, 08 Feb 2013 08:28:00 -0000
+
+ros-indigo-kobuki-capabilities (0.2.4-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Sun, 20 Jan 2013 15:00:00 -0000
+
+ros-indigo-kobuki-capabilities (0.2.3-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Tue, 15 Jan 2013 15:00:00 -0000
+
+ros-indigo-kobuki-capabilities (0.2.2-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Tue, 01 Jan 2013 15:00:00 -0000
+
+ros-indigo-kobuki-capabilities (0.2.1-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Fri, 21 Dec 2012 15:00:00 -0000
+
+ros-indigo-kobuki-capabilities (0.2.0-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Fri, 21 Dec 2012 10:37:00 -0000
+
+ros-indigo-kobuki-capabilities (0.1.9-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Fri, 21 Dec 2012 10:35:00 -0000
+
+ros-indigo-kobuki-capabilities (0.1.8-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Sun, 09 Dec 2012 15:00:00 -0000
+
+ros-indigo-kobuki-capabilities (0.1.7-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Tue, 04 Dec 2012 15:00:00 -0000
+
+ros-indigo-kobuki-capabilities (0.1.5-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Wed, 21 Nov 2012 15:00:00 -0000
+
+ros-indigo-kobuki-capabilities (0.1.4-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Tue, 20 Nov 2012 15:00:00 -0000
+
+ros-indigo-kobuki-capabilities (0.1.3-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Thu, 15 Nov 2012 15:00:00 -0000
+
+ros-indigo-kobuki-capabilities (0.1.2-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Fri, 02 Nov 2012 15:00:00 -0000
+
+ros-indigo-kobuki-capabilities (0.1.1-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Sun, 04 Nov 2012 15:00:00 -0000
+
+ros-indigo-kobuki-capabilities (0.1.0-0trusty) trusty; urgency=high
+
+
+
+ -- Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>  Thu, 19 Apr 2012 15:00:00 -0000
+
+
