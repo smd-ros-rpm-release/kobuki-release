@@ -1,0 +1,12 @@
+Source: ros-indigo-kobuki-controller-tutorial
+Section: misc
+Priority: extra
+Maintainer: Marcus Liebhardt <marcus.liebhardt@yujinrobot.com>
+Build-Depends: debhelper (>= 9.0.0), ros-indigo-catkin, ros-indigo-kobuki-msgs, ros-indigo-nodelet, ros-indigo-pluginlib, ros-indigo-roscpp, ros-indigo-std-msgs, ros-indigo-yocs-controllers
+Homepage: http://ros.org/wiki/kobuki_controller_tutorial
+Standards-Version: 3.9.2
+
+Package: ros-indigo-kobuki-controller-tutorial
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-indigo-kobuki-msgs, ros-indigo-nodelet, ros-indigo-pluginlib, ros-indigo-roscpp, ros-indigo-std-msgs, ros-indigo-yocs-controllers
+Description: Code for the Kobuki controller tutorial.
