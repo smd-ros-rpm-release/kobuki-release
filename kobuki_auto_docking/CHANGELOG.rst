@@ -2,19 +2,13 @@
 Changelog for package kobuki_auto_docking
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.6.2 (2014-08-11)
+0.5.7 (2014-08-18)
 ------------------
 
-0.6.1 (2014-08-08)
+0.5.6 (2014-05-23)
 ------------------
-
-0.6.0 (2014-08-08)
-------------------
-* leaning comments
-* refactoring
-* publish debug message even if auto dock is not running
 * Add missing run dependency on yocs_cmd_vel_mux
-* Contributors: Jihoon Lee, Jorge Santos, jihoonl
+* Contributors: Jorge Santos
 
 0.5.5 (2013-10-11)
 ------------------

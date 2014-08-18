@@ -2,13 +2,12 @@
 Changelog for package kobuki_safety_controller
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.6.2 (2014-08-11)
+0.5.7 (2014-08-18)
 ------------------
+* added time_to_extend_bump_cliff_events param to kobuki_safety_controller
+* Contributors: Kaijen Hsiao
 
-0.6.1 (2014-08-08)
-------------------
-
-0.6.0 (2014-08-08)
+0.5.6 (2014-05-23)
 ------------------
 * Add missing run dependency on yocs_cmd_vel_mux
 * Contributors: Jorge Santos

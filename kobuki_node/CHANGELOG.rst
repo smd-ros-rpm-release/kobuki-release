@@ -2,29 +2,13 @@
 Changelog for package kobuki_node
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.6.2 (2014-08-11)
-------------------
-* add queue_size on publiehrs `#338 <https://github.com/yujinrobot/kobuki/issues/338>`_
-* fixing the file link resolves `#339 <https://github.com/yujinrobot/kobuki/issues/339>`_
-* Contributors: Jihoon Lee
-
-0.6.1 (2014-08-08)
+0.5.7 (2014-08-18)
 ------------------
 
-0.6.0 (2014-08-08)
+0.5.6 (2014-05-23)
 ------------------
-* remove kobuki_capabilities dependency from package.xml remove author emails
-* moves app manager launcher to kobuki_capabilities (solves `#331 <https://github.com/yujinrobot/kobuki/issues/331>`_)
-* kobuki_node: adds shutdown flag to nodelet (fixes `#324 <https://github.com/yujinrobot/kobuki/issues/324>`_)
-* fixes typo
-* updates icons for apps and app manager launcher
-* adds minor changes due to capability server and app manager updates
-* updates for new rapp lists
-* publish_tf arg for the launcher.
-* removes rviz launcher and dependency (fixes `#315 <https://github.com/yujinrobot/kobuki/issues/315>`_)
-* adds app manager and capability server launcher for kobuki
 * Add missing run dependency on yocs_cmd_vel_mux
-* Contributors: Daniel Stonier, Jihoon Lee, Jorge Santos, Marcus Liebhardt
+* Contributors: Jorge Santos
 
 0.5.5 (2013-10-11)
 ------------------

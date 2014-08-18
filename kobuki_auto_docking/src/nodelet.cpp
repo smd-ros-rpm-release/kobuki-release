@@ -57,8 +57,16 @@ public:
   {
     NODELET_DEBUG("Initialising nodelet...");
     std::string nodelet_name = this->getName();
+    //auto_dock_.reset(new AutoDockingROS());
     auto_dock_.reset(new AutoDockingROS(nodelet_name));
+    //auto_dock_.reset(new AutoDockingROS(this->getPrivateNodeHandle()));
+    //auto_dock_.reset(new AutoDockingROS(this->getPrivateNodeHandle(), nodelet_name));
     auto_dock_->init(this->getPrivateNodeHandle());
+    /*if (auto_dock_->init(this->getPrivateNodeHandle()))
+    {
+      NODELET_DEBUG("Auto docking initialised. Spinning up update thread ...");
+      update_thread_.start(&AutoDockingNodelet::update, *this);
+    }*/
     NODELET_DEBUG("Nodelet initialised.");
   }
 private:
@@ -73,6 +81,7 @@ private:
   }
 
   boost::shared_ptr<AutoDockingROS> auto_dock_;
+  //AutoDockingROS auto_dock_;
   ecl::Thread update_thread_;
 };
 
