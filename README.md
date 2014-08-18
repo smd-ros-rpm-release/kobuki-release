@@ -1,3 +1,34 @@
+## kobuki (hydro) - 0.5.7-0
+
+The packages in the `kobuki` repository were released into the `hydro` distro by running `/usr/bin/bloom-release kobuki -t hydro -r hydro` on `Mon, 18 Aug 2014 12:07:00 -0000`
+
+These packages were released:
+- `kobuki`
+- `kobuki_auto_docking`
+- `kobuki_bumper2pc`
+- `kobuki_controller_tutorial`
+- `kobuki_description`
+- `kobuki_keyop`
+- `kobuki_node`
+- `kobuki_random_walker`
+- `kobuki_safety_controller`
+- `kobuki_testsuite`
+
+Version of package(s) in repository `kobuki`:
+- upstream repository: https://github.com/yujinrobot/kobuki.git
+- release repository: https://github.com/yujinrobot-release/kobuki-release.git
+- rosdistro version: `0.5.6-0`
+- old version: `0.5.6-0`
+- new version: `0.5.7-0`
+
+Versions of tools used:
+- bloom version: `0.5.11`
+- catkin_pkg version: `0.2.4`
+- rosdep version: `0.10.30`
+- rosdistro version: `0.3.5`
+- vcstools version: `0.1.35`
+
+
 ## kobuki (indigo) - 0.6.2-0
 
 The packages in the `kobuki` repository were released into the `indigo` distro by running `/usr/bin/bloom-release kobuki -t indigo -r indigo` on `Mon, 11 Aug 2014 05:40:23 -0000`
