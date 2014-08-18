@@ -2,6 +2,9 @@
 Changelog for package kobuki_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.5.7 (2014-08-18)
+------------------
+
 0.5.6 (2014-05-23)
 ------------------
 * update body friction and revert torque limit
