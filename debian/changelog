@@ -1,0 +1,63 @@
+ros-hydro-kobuki-testsuite (0.5.8-0quantal) quantal; urgency=high
+
+
+
+ -- Jorge Santos Simon <jorge@yujinrobot.com>  Tue, 19 Aug 2014 15:00:00 -0000
+
+ros-hydro-kobuki-testsuite (0.5.7-0quantal) quantal; urgency=high
+
+
+
+ -- Jorge Santos Simon <jorge@yujinrobot.com>  Sun, 17 Aug 2014 15:00:00 -0000
+
+ros-hydro-kobuki-testsuite (0.5.6-0quantal) quantal; urgency=high
+
+  * Add missing run dependency on yocs_cmd_vel_mux
+  * Contributors: Jorge Santos
+
+ -- Jorge Santos Simon <jorge@yujinrobot.com>  Thu, 22 May 2014 15:00:00 -0000
+
+ros-hydro-kobuki-testsuite (0.5.5-0quantal) quantal; urgency=high
+
+  * New script: test_slow_drive.sh
+    Moves following a 90cm radius circle while publishing accumulated and
+    average error on angular velocity, using gyroscope data as reference.
+    Useful for testing passive wheels configurations.
+    See https://github.com/yujinrobot/kobuki/issues/202 for more details
+
+ -- Jorge Santos Simon <jorge@yujinrobot.com>  Thu, 10 Oct 2013 15:00:00 -0000
+
+ros-hydro-kobuki-testsuite (0.5.4-0quantal) quantal; urgency=high
+
+
+
+ -- Jorge Santos Simon <jorge@yujinrobot.com>  Thu, 05 Sep 2013 15:00:00 -0000
+
+ros-hydro-kobuki-testsuite (0.5.3-0quantal) quantal; urgency=high
+
+
+
+ -- Jorge Santos Simon <jorge@yujinrobot.com>  Thu, 29 Aug 2013 15:00:00 -0000
+
+ros-hydro-kobuki-testsuite (0.5.0-0quantal) quantal; urgency=high
+
+  * adds extra url info to kobuki_testsuite
+  * adds readme for kobuki_testsuite
+  * removes turtlebot comments
+  * Fix URL to the previous changelog wiki
+  * Changelogs at package level
+
+ -- Jorge Santos Simon <jorge@yujinrobot.com>  Wed, 28 Aug 2013 15:00:00 -0000
+
+ros-hydro-kobuki-testsuite (0.4.0-0quantal) quantal; urgency=high
+
+  * Add information about preliminary nodes for gyro_perf in the launcher file.
+  * Add mod function importing in gyro_perf.py which is missing.
+  * Add wrap_to_pi function into gyro_perf.py which is missing.
+  * Add convenient launcher file for single running of gyro_perf.py script.
+  * Add batch_test.sh for automated batch testing of gyro_perf script.
+  * Add gyro_perf.py script for performance measuring of gyro.
+
+ -- Jorge Santos Simon <jorge@yujinrobot.com>  Thu, 08 Aug 2013 15:00:00 -0000
+
+
