@@ -2,13 +2,19 @@
 Changelog for package kobuki
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.5.8 (2014-08-20)
+0.6.3 (2014-08-25)
+------------------
+* remove authors e-mail
+* rename kobuki_apps as kobuki_rapps to resolve `#336 <https://github.com/yujinrobot/kobuki/issues/336>`_
+* Contributors: Jihoon Lee
+
+0.6.2 (2014-08-11)
 ------------------
 
-0.5.7 (2014-08-18)
+0.6.1 (2014-08-08)
 ------------------
 
-0.5.6 (2014-05-23)
+0.6.0 (2014-08-08)
 ------------------
 * Add missing run dependency on yocs_cmd_vel_mux
 * Contributors: Jorge Santos
