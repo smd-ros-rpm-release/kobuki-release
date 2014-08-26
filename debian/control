@@ -1,0 +1,12 @@
+Source: ros-indigo-kobuki-auto-docking
+Section: misc
+Priority: extra
+Maintainer: Younghun Ju <yhju@yujinrobot.com>
+Build-Depends: debhelper (>= 9.0.0), ros-indigo-actionlib, ros-indigo-actionlib-msgs, ros-indigo-catkin, ros-indigo-ecl-geometry, ros-indigo-ecl-linear-algebra, ros-indigo-ecl-threads, ros-indigo-geometry-msgs, ros-indigo-kdl-conversions, ros-indigo-kobuki-dock-drive, ros-indigo-kobuki-msgs, ros-indigo-message-filters, ros-indigo-nav-msgs, ros-indigo-nodelet, ros-indigo-pluginlib, ros-indigo-roscpp, ros-indigo-rospy, ros-indigo-std-msgs
+Homepage: http://ros.org/wiki/kobuki_auto_docking
+Standards-Version: 3.9.2
+
+Package: ros-indigo-kobuki-auto-docking
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-indigo-actionlib, ros-indigo-actionlib-msgs, ros-indigo-ecl-geometry, ros-indigo-ecl-linear-algebra, ros-indigo-ecl-threads, ros-indigo-geometry-msgs, ros-indigo-kdl-conversions, ros-indigo-kobuki-dock-drive, ros-indigo-kobuki-msgs, ros-indigo-message-filters, ros-indigo-nav-msgs, ros-indigo-nodelet, ros-indigo-pluginlib, ros-indigo-roscpp, ros-indigo-rospy, ros-indigo-std-msgs, ros-indigo-yocs-cmd-vel-mux
+Description: Automatic docking for Kobuki: Users owning a docking station for Kobuki can use this tool to let Kobuki find its nest autonomously.
