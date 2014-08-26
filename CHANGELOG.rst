@@ -2,6 +2,9 @@
 Changelog for package kobuki_safety_controller
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.6.4 (2014-08-26)
+------------------
+
 0.6.3 (2014-08-25)
 ------------------
 * added initialization for msg_ to kobuki_safety_controller
