@@ -1,0 +1,12 @@
+Source: ros-indigo-kobuki
+Section: misc
+Priority: extra
+Maintainer: Daniel Stonier <stonier@yujinrobot.com>
+Build-Depends: debhelper (>= 9.0.0), ros-indigo-catkin
+Homepage: http://ros.org/wiki/kobuki
+Standards-Version: 3.9.2
+
+Package: ros-indigo-kobuki
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, ros-indigo-kobuki-auto-docking, ros-indigo-kobuki-bumper2pc, ros-indigo-kobuki-capabilities, ros-indigo-kobuki-controller-tutorial, ros-indigo-kobuki-description, ros-indigo-kobuki-keyop, ros-indigo-kobuki-node, ros-indigo-kobuki-random-walker, ros-indigo-kobuki-rapps, ros-indigo-kobuki-safety-controller, ros-indigo-kobuki-testsuite
+Description: Software for Kobuki, Yujin Robot's mobile research base.
